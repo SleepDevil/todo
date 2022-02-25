@@ -34,6 +34,7 @@ export default function Login() {
     const { username: inputUsername, password: inputPassword } = val;
     setDbUsername(inputUsername);
     setDbPassword(inputPassword);
+    message.success("注册成功");
   };
 
   return (
