@@ -19,7 +19,6 @@ export default function Login() {
   >("password");
 
   const handleLogin = (val: { username: string; password: string }) => {
-    console.log("login", val);
     const { username: inputUsername, password: inputPassword } = val;
     if (inputUsername === dbUsername && inputPassword === dbPassword) {
       message.success("登录成功");
@@ -46,9 +45,6 @@ export default function Login() {
           initialValues={{ remember: true }}
           onFinish={(val) => {
             isLogin ? handleLogin(val) : handleRegister(val);
-          }}
-          onFinishFailed={() => {
-            console.log("fail");
           }}
           autoComplete="off"
         >

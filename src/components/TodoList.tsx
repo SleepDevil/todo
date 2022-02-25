@@ -40,7 +40,6 @@ export function TodoList({
   };
 
   const computePercent = useMemo(() => {
-    console.log("执行了？");
     let totalChildren = todos.length;
     let localFinishNum = 0;
     todos?.forEach((val) => {
