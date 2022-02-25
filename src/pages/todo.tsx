@@ -15,7 +15,6 @@ export interface TodoListItem {
 }
 
 function Todo() {
-  const [signal, setSignal] = useState(0);
   const [formCategory] = useForm<{ category: string }>();
   const [formTodo] = useForm<{ category: string; todo: string }>();
   const [addNewTodoVisible, setAddNewTodoVisible] = useState<boolean>(false);
@@ -29,8 +28,8 @@ function Todo() {
   const addNewTodo = async () => {
     const values = await formTodo.validateFields();
     const d = new Date();
-    const localLists = cloneDeep(todoLists);
-    localLists!.forEach((item, index) => {
+    // const localLists = cloneDeep(todoLists);
+    todoLists!.forEach((item, index) => {
       if (item.category === values.category) {
         item.children.push({
           id: guid(),
@@ -40,10 +39,9 @@ function Todo() {
         });
       }
     });
-    setTodoLists(localLists);
+    setTodoLists(todoLists);
     message.success("添加成功");
     setAddNewTodoVisible(false);
-    setSignal((signal) => signal + 1);
   };
 
   const addNewCategory = async () => {
@@ -158,8 +156,8 @@ function Todo() {
                     key={item.category}
                     category={item.category}
                     todos={item.children}
+                    todoLists={todoLists}
                     setTodos={setTodoLists}
-                    signal={signal}
                   ></TodoList>
                 );
               })

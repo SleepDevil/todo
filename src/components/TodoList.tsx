@@ -14,32 +14,28 @@ export interface TodoItem {
 export function TodoList({
   category,
   todos,
+  todoLists,
   setTodos,
-  signal,
 }: {
   category: string;
   todos: TodoItem[];
+  todoLists: TodoListItem[];
   setTodos: Dispatch<SetStateAction<TodoListItem[] | undefined>>;
-  signal: number;
 }) {
-  const [todoLists, setTodoLists, _R] = useLocalStorage<TodoListItem[]>(
-    "todolists",
-    []
-  );
   const [finishedNum, setFinishedNum] = useState(0);
 
   const finishTodo = (category: string, id: string) => {
-    todoLists?.forEach((val) => {
-      if (val.category === category) {
-        val.children.forEach((item) => {
-          if (item.id === id) {
-            item.finished = true; // TODO =true
-            setFinishedNum((prev) => prev + 1);
-          }
-        });
+    todos.forEach((val) => {
+      if (val.id === id) {
+        val.finished = true; // TODO =true
+        setFinishedNum((prev) => prev + 1);
       }
     });
-    // setTodoLists(todoLists);
+    todoLists.forEach((val) => {
+      if (val.category === category) {
+        val.children = todos;
+      }
+    });
     setTodos(todoLists);
   };
 
