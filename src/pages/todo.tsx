@@ -6,6 +6,7 @@ import { TodoItem, TodoList } from "../components/TodoList";
 import { guid } from "../utils/guid";
 import { CalendarOutlined } from "@ant-design/icons";
 import "./todo.css";
+import { currentTime } from "../utils/time";
 
 const { Option } = Select;
 
@@ -27,14 +28,13 @@ function Todo() {
 
   const addNewTodo = async () => {
     const values = await formTodo.validateFields();
-    const d = new Date();
     // const localLists = cloneDeep(todoLists);
     todoLists!.forEach((item, index) => {
       if (item.category === values.category) {
         item.children.push({
           id: guid(),
           title: values.todo,
-          createdAt: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
+          createdAt: currentTime(),
           finished: false,
         });
       }

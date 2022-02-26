@@ -65,7 +65,9 @@ export function TodoList({
                 <Checkbox
                   onClick={() => finishTodo(category, val.id)}
                   checked={val.finished}
-                  style={{ fontSize: "18px" }}
+                  style={{
+                    fontSize: "18px",
+                  }}
                 >
                   <span
                     style={{
@@ -73,6 +75,9 @@ export function TodoList({
                     }}
                   >
                     {val.title}
+                  </span>
+                  <span style={{ fontSize: "14px", color: "GrayText" }}>
+                    ---创建于：{val.createdAt}
                   </span>
                 </Checkbox>
               </Timeline.Item>

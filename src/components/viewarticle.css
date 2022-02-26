@@ -1,0 +1,10 @@
+.contentWrapper {
+  width: 54rem;
+  margin: 0 auto;
+}
+
+p {
+  margin: 1em 0;
+  line-height: 2;
+  font-size: 1rem;
+}
