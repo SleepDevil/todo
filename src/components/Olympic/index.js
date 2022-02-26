@@ -49,7 +49,7 @@ export default class Olympic extends React.Component {
       container = document.getElementById("container");
       renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setPixelRatio(window.devicePixelRatio);
-      renderer.setSize("100%", "100%");
+      renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.shadowMap.enabled = true;
       container.appendChild(renderer.domElement);
 

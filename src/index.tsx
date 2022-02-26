@@ -2,24 +2,24 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import "antd/dist/antd.css";
 import Login from "./pages/login";
-import Todo from "./pages/todo";
 import Redirect from "./pages/redirect";
 import Home from "./pages/home";
-import Calculator from "./components/calculator";
+import Olympic from "./components/Olympic";
 
 ReactDOM.render(
-  <BrowserRouter>
+  <HashRouter>
     <React.StrictMode>
       <Routes>
         <Route path="/" element={<Redirect />} />
         <Route path="/home/*" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/olympic" element={<Olympic />} />
       </Routes>
     </React.StrictMode>
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById("root")
 );
 
