@@ -26,6 +26,7 @@ export default class NewArticle extends React.Component<
     });
     localStorage.setItem("articles", JSON.stringify(articles));
     message.success("创建成功");
+    localStorage.setItem("currentMenu", "articles");
     setTimeout(() => {
       this.props.navigate("/home/articles");
     }, 1500);
@@ -45,6 +46,7 @@ export default class NewArticle extends React.Component<
 
           <div id="textNoteWrap">
             <MdEditor
+              style={{ height: "50vh" }}
               ref={(node) => (this.mdEditor = node || undefined)}
               renderHTML={(text) => mdParser.render(text)}
               placeholder="在此输入文章内容，支持markdown语法，右侧为实时预览"

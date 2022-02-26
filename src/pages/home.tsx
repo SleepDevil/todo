@@ -26,6 +26,7 @@ export default function Home() {
           mode="inline"
           defaultSelectedKeys={[localStorage.getItem("currentMenu") ?? "todo"]}
           onClick={(e) => localStorage.setItem("currentMenu", e.key)}
+          selectedKeys={[localStorage.getItem("currentMenu") ?? "todo"]}
         >
           <Menu.Item key="todo" icon={<UserOutlined />}>
             <Link to="/home/todo">代办清单</Link>
