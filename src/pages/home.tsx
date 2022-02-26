@@ -8,6 +8,7 @@ import "./home.css";
 import { Link, Route, Routes } from "react-router-dom";
 import Todo from "./todo";
 import Calculator from "../components/calculator";
+import Olympic from "../components/Olympic/index";
 
 export default function Home() {
   const { Header, Content, Footer, Sider } = Layout;
@@ -23,8 +24,8 @@ export default function Home() {
           <Menu.Item key="calculator" icon={<VideoCameraOutlined />}>
             <Link to="/home/calculator">计算器</Link>
           </Menu.Item>
-          <Menu.Item key="3" icon={<UploadOutlined />}>
-            nav 3
+          <Menu.Item key="bdd" icon={<UploadOutlined />}>
+            <Link to="/home/bdd">冰墩墩</Link>
           </Menu.Item>
           <Menu.Item key="4" icon={<UserOutlined />}>
             nav 4
@@ -44,6 +45,7 @@ export default function Home() {
             <Routes>
               <Route path="/todo" element={<Todo />} />
               <Route path="/calculator" element={<Calculator />} />
+              <Route path="/bdd" element={<Olympic />} />
             </Routes>
           </div>
         </Content>

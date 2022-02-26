@@ -8,6 +8,7 @@ import Login from "./pages/login";
 import Todo from "./pages/todo";
 import Redirect from "./pages/redirect";
 import Home from "./pages/home";
+import Calculator from "./components/calculator";
 
 ReactDOM.render(
   <BrowserRouter>
