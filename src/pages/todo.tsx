@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useLocalStorage } from "react-use";
 import { TodoItem, TodoList } from "../components/TodoList";
 import { guid } from "../utils/guid";
-import { cloneDeep } from "lodash";
+import { CalendarOutlined } from "@ant-design/icons";
 import "./todo.css";
 
 const { Option } = Select;
@@ -127,41 +127,51 @@ function Todo() {
         </Form>
       </Modal>
 
-      <div className="background"></div>
-      <div className="newBtns">
-        <div
-          className="newCategoryBtn"
-          onClick={() => {
-            setAddNewCategoryvisible(true);
-          }}
-        >
-          Add new Category
+      <div className="background">
+        <div className="newBtns">
+          <div
+            className="newCategoryBtn"
+            onClick={() => {
+              setAddNewCategoryvisible(true);
+            }}
+          >
+            Add new Category
+          </div>
+          <div
+            className="newTodoBtn"
+            onClick={() => {
+              setAddNewTodoVisible(true);
+            }}
+          >
+            Add new todo
+          </div>
         </div>
-        <div
-          className="newTodoBtn"
-          onClick={() => {
-            setAddNewTodoVisible(true);
-          }}
-        >
-          Add new todo
-        </div>
-      </div>
-      <div className="todoWrapper">
-        <div className="todoTitle">TODO</div>
-        <div className="todos">
-          {todoLists
-            ? todoLists.map((item, index) => {
-                return (
-                  <TodoList
-                    key={item.category}
-                    category={item.category}
-                    todos={item.children}
-                    todoLists={todoLists}
-                    setTodos={setTodoLists}
-                  ></TodoList>
-                );
-              })
-            : null}
+        <div className="todoWrapper">
+          <CalendarOutlined
+            style={{
+              fontSize: "60px",
+              position: "absolute",
+              top: "-43px",
+              left: "65px",
+              color: "rgb(133,133,246)",
+            }}
+          />
+          <div className="todoTitle">TODO</div>
+          <div className="todos">
+            {todoLists
+              ? todoLists.map((item, index) => {
+                  return (
+                    <TodoList
+                      key={item.category}
+                      category={item.category}
+                      todos={item.children}
+                      todoLists={todoLists}
+                      setTodos={setTodoLists}
+                    ></TodoList>
+                  );
+                })
+              : null}
+          </div>
         </div>
       </div>
     </>

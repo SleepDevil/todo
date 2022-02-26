@@ -7,14 +7,15 @@ import "antd/dist/antd.css";
 import Login from "./pages/login";
 import Todo from "./pages/todo";
 import Redirect from "./pages/redirect";
+import Home from "./pages/home";
 
 ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
       <Routes>
         <Route path="/" element={<Redirect />} />
+        <Route path="/home/*" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/todo" element={<Todo />} />
       </Routes>
     </React.StrictMode>
   </BrowserRouter>,
