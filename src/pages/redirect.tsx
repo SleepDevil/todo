@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function Redirect() {
   let navigate = useNavigate();
   useEffect(() => {
-    navigate("/home/todo");
+    navigate("/login");
   }, []);
 
   return <div className="App"></div>;

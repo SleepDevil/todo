@@ -23,7 +23,7 @@ export default function Login() {
     if (inputUsername === dbUsername && inputPassword === dbPassword) {
       message.success("登录成功");
       setTimeout(() => {
-        navigate("/todo");
+        navigate("/home/todo");
       }, 2000);
     } else {
       message.warning("账号或密码错误，请重试");
