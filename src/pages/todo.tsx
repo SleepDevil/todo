@@ -120,7 +120,7 @@ function Todo() {
           <Form.Item
             label="Category"
             name="category"
-            rules={[{ required: true, message: "Please input your username!" }]}
+            rules={[{ required: true, message: "Please input your category!" }]}
           >
             <Input />
           </Form.Item>

@@ -48,7 +48,7 @@ export function TodoList({
       }
     });
     setFinishedNum(localFinishNum);
-    return (finishedNum / totalChildren) * 100;
+    return Number(((finishedNum / totalChildren) * 100).toFixed(2));
   }, [finishedNum, todos.length]);
 
   return (
